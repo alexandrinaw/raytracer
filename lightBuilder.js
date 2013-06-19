@@ -56,10 +56,10 @@
     };
     var isInShadow = function (ry, obj, lt) {
         for (var i=0; i<objects.length; i++){
-            p = objects[i].intersections(ry);
-            if (p.length>0 && obj !==objects[i] && !objects[i] instanceof Plane) {
-               if (lt.x-ry.x >= lt.x-p[0][0] && lt.y-ry.y >= lt.y-p[0][1] && lt.z-ry.z >= lt.z-p[0][2]){
-                    return true; 
+            var p = objects[i].intersections(ry);
+            if (p.length>0 && obj !==objects[i]) {
+               if (((lt.x > p[0][0] && p[0][0] > ry.x) || (lt.x < p[0][0] && p[0][0] < ry.x)) &&  ((lt.y > p[0][1] && p[0][1] > ry.y) || (lt.y < p[0][1] && p[0][1] < ry.y)) && ((lt.z > p[0][2] && p[0][2] > ry.z) || (lt.z < p[0][2] && p[0][2] < ry.z))){
+                   return true; 
                }
             }
         }

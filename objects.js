@@ -87,18 +87,18 @@
         this.back = new Plane([x, y, z-size/2],[0,0,-1]);
         this.left = new Plane([x-size/2, y, z],[-1, 0, 0]);
         this.right = new Plane([x+size/2, y, z],[1, 0, 0]);
-        this.top = new Plane([x, y-size/2, z],[0, -1, 0]);
-        this.bottom = new Plane([z, y+size/2, z],[0, 1, 0]);
+        this.up = new Plane([x, y-size/2, z],[0, -1, 0]);
+        this.down = new Plane([z, y+size/2, z],[0, 1, 0]);
     }
 
     Cube.prototype = {
-        intersections: function(ray) {
-            var a = this.front.intersections(ray);             
-            if (a[0]>this.x-this.size/2 && a[0]<this.x+this.size/2) {
-                return a; 
-            }else {
+        intersections: function(ry) {
+            var a = this.front.intersections(ry);             
+           // if (a[0]>this.x-this.size/2 && a[0]<this.x+this.size/2) {
+                return [a]; 
+           // }else {
                 return [];
-            }
+           // }
         }, 
         normal: function() {
             return this.front.normal();

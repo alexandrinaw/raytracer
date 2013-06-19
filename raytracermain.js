@@ -33,27 +33,27 @@ var screen;
     Camera.prototype = {
         moveRight : function () {
             this.x = this.x+50;
-            draw();
+            draw(); 
         },
         moveLeft : function () {
             this.x = this.x-50;
-            draw();
+            draw(); 
         },
         moveUp : function () {
             this.y = this.y+50;
-            draw();
+            draw(); 
         },
         moveDown : function () {
             this.y = this.y-50;
-            draw();
+            draw(); 
         },
         moveForward : function () {
             this.z = this.z-50;
-            draw();
+            draw(); 
         },
         moveBackward : function () {
             this.z = this.z+50;
-            draw();
+            draw(); 
         },
     }
     
@@ -67,28 +67,28 @@ var screen;
 
     Screen.prototype = {
             moveRight : function () {
-                this.x = this.x+50;
-                draw();
+                this.x = this.x-50;
+                draw(); 
             },
             moveLeft : function () {
-                this.x = this.x-50;
-                draw();
+                this.x = this.x+50;
+                draw(); 
             },
             moveUp : function () {
                 this.y = this.y+50;
-                draw();
+                draw(); 
             },
             moveDown : function () {
                 this.y = this.y-50;
-                draw();
+                draw(); 
             },
             moveForward : function () {
                 this.z = this.z-50;
-                draw();
+                draw(); 
             },
             moveBackward : function () {
                 this.z = this.z+50;
-                draw();
+                draw(); 
             },
         };
 
@@ -98,11 +98,12 @@ var screen;
         var cam_z=cam.z;
        
         var screenDepth = screen.z; 
- 
+        var screenX = screen.x;
+        var screenY = screen.y;
         for (var w=0; w<width; w++) {
             for (var h=0; h<height; h++) {
                 var color=[0, 0, 0, 255]; 
-                var r = new ray(cam_x,cam_y, cam_z, w, h, screenDepth);
+                var r = new ray(cam_x,cam_y, cam_z, w+screenX, h+screenY, screenDepth);
                 var cl = closest_object(r); 
                 if (cl!==undefined) {
                     var lighting = lightBuilder(cl, r); 
@@ -116,13 +117,13 @@ var screen;
         c.putImageData(imageData, 0, 0);
     }
 
-    function closest_object(ray) {
+    function closest_object(ry) {
         var closest_dist=10000000; 
         var closest_i=-1; 
         for (var i=0; i<objects.length; i++) {
-            var p = objects[i].intersections(ray); 
+            var p = objects[i].intersections(ry); 
             for (var j=0; j<p.length; j++) {
-                var dist = Math.sqrt(Math.pow(ray.dx-p[j][0], 2)+Math.pow(ray.dy-p[j][1], 2)+Math.pow(ray.dz-p[j][2], 2));
+                var dist = Math.sqrt(Math.pow(ry.dx-p[j][0], 2)+Math.pow(ry.dy-p[j][1], 2)+Math.pow(ry.dz-p[j][2], 2));
                 if (dist<closest_dist) {
                     closest_dist=dist; 
                     closest_i=i; 

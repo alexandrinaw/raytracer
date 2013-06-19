@@ -1,19 +1,19 @@
 ;(function(exports) {
-    var addButtons = function () {
+    var allowMovement = function () {
         window.addEventListener("keydown", function(e) {
             if(e.keyCode == 38) {
-                cam.moveUp();   
+                screen.moveDown(); 
             }
             if(e.keyCode == 40) {
-                cam.moveDown(); 
+                screen.moveUp(); 
             }
             if(e.keyCode == 39) {
-                cam.moveRight(); 
+                screen.moveLeft(); 
             }
             if(e.keyCode == 37) {
-                cam.moveLeft(); 
+                screen.moveRight(); 
             }
         })
     };
-    exports.addButtons=addButtons; 
+    exports.allowMovement=allowMovement;
 })(this); 
