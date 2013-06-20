@@ -8,6 +8,7 @@ var ia = 100;
     };
 
     Light.prototype = {
+        //unitVector = a unit vector from the point given to the light (x, y, z) position
         unitVector: function(x, y, z) {
             var l = Math.sqrt(Math.pow(this.x-x, 2) + Math.pow (this.y - y, 2) + Math.pow (this.z - z,2));
             return [(this.x-x)/l, (this.y-y)/l,(this.z-z)/l];
