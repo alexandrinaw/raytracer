@@ -21,7 +21,7 @@
         dotProduct: function (ray2) {
             var r = this.unitVector(); 
             var r2 = ray2.unitVector(); 
-            return r[0]*r2[0]+r[1]*r2[1]*r[2]*r2[2];
+            return r[0]*r2[0]+r[1]*r2[1]+r[2]*r2[2];
         }
     };
     exports.ray=ray; 
