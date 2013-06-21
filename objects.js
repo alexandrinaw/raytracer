@@ -64,7 +64,8 @@
             var px = this.norm.x;
             var py = this.norm.y;
             var pz = this.norm.z;
-            var dot = (unit[0]*n[0] + unit[1]*n[1] + unit[2]*n[2]);
+            var dot = this.norm.dotProduct(ray); 
+           // var dot = (unit[0]*n[0] + unit[1]*n[1] + unit[2]*n[2]);
             var d = ((unit[0]-px)*n[0]+(unit[1]-py)*n[1]+(unit[2]-pz)*n[2])/dot;
             if (dot===0||dot<0){
                 return [];
