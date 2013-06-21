@@ -24,8 +24,8 @@
                 var dist = -b/2*a; 
                 return [coords(dist)];
             } else if (disc>0){
-                var dist1 = (-b + Math.sqrt(disc))/(2*a); 
-                var dist2 = (-b - Math.sqrt(disc))/(2*a); 
+                var dist1 = (-b - Math.sqrt(disc))/(2*a); 
+                var dist2 = (-b + Math.sqrt(disc))/(2*a); 
                 return [coords(dist1), coords(dist2)];
             } else {
                 throw "logic error!";

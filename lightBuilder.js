@@ -35,7 +35,7 @@
             var diff_g=0; 
             var diff_b=0; 
           }
-          var rr = [2*lambert*nu[0]-lu[0], 2*lambert*nu[1]-lu[1],2*lambert*nu[2]-lu[2]];//reflected ray
+          var rr = [lu[0]-2*lambert*nu[0], lu[1]-2*lambert*nu[1],nu[2]-2*lambert*nu[2]];//reflected ray
           var rDotV = rr[0]*ru[0]+rr[1]*ru[1]+rr[2]*ru[2];
           if (lambert > 0 && rDotV>0) {
             var spec_r = ks*rDotV*r; 
