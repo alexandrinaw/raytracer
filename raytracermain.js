@@ -5,7 +5,7 @@ var screenDepth;
 var screen;  
 (function (exports) {
     function setUpScene() {
-        var p1=new Plane([400,0,0],[-1, 0, 0]);
+        var p1=new Plane([400,0,0],[1, 0, 0]);
         objects.push(p1); 
         var s = new Sphere(30, 75, -30, 40);
         s.Material.setColor(30, 198, 0); 
@@ -20,7 +20,7 @@ var screen;
         objects.push(s4); 
         var s3 = new Sphere (200,200,-200,40); 
         objects.push(s3); 
-        var p = new Plane([100,300,100],[0,-1,0]);
+        var p = new Plane([100,300,100],[0,1,0]);
         p.Material=new Checkerboard(100); 
         objects.push(p); 
         var l = new Light(250, 100, 100, 100);
@@ -105,8 +105,9 @@ var screen;
         var screenY = screen.y;
         for (var w=0; w<width; w++) {
             for (var h=0; h<height; h++) {
-                var color=[0, 0, 0, 255]; 
-                var r = new ray(cam_x,cam_y, cam_z, w+screenX, h+screenY, screenDepth);
+                var color=[0, 0, 0, 255];
+                var r = new ray(w+screenX, h+screenY, screenDepth, cam_x, cam_y, cam_z); 
+               // var r = new ray(cam_x,cam_y, cam_z, w+screenX, h+screenY, screenDepth);
                 var cl = closest_object(r); 
                 if (cl!==undefined) {
                     var lighting = lightBuilder(cl, r); 
@@ -126,7 +127,7 @@ var screen;
         for (var i=0; i<objects.length; i++) {
             var p = objects[i].intersections(ry); 
             for (var j=0; j<p.length; j++) {
-                var dist = Math.sqrt(Math.pow(ry.dx-p[j][0], 2)+Math.pow(ry.dy-p[j][1], 2)+Math.pow(ry.dz-p[j][2], 2));
+                var dist = Math.sqrt(Math.pow(ry.x-p[j][0], 2)+Math.pow(ry.y-p[j][1], 2)+Math.pow(ry.z-p[j][2], 2));
                 if (dist<closest_dist) {
                     closest_dist=dist; 
                     closest_i=i; 
@@ -139,5 +140,5 @@ var screen;
     }
     exports.setUpScene = setUpScene; 
     exports.draw=draw;
-
+    exports.cl=closest_object;
 })(this); 
