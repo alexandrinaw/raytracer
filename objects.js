@@ -67,7 +67,7 @@
             var dot = this.norm.dotProduct(ry); 
            // var dot = (unit[0]*n[0] + unit[1]*n[1] + unit[2]*n[2]);
             var d = ((px-ry.x)*n[0]+(py-ry.y)*n[1]+(pz-ry.z)*n[2])/dot;
-            if (dot===0||dot<0){
+            if (dot===0||dot>0){
                 return [];
             } else {
                 return [[ry.x+unit[0]*d, ry.y+unit[1]*d, ry.z+unit[2]*d]]; 
