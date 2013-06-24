@@ -13,66 +13,11 @@ var screen;
         this.height = height;
     };
 
-
-    Screen.prototype = {
-        moveRight : function () {
-            this.x = this.x-50;
-            draw();
-        },
-        moveLeft : function () {
-            this.x = this.x+50;
-            draw();
-        },
-        moveUp : function () {
-            this.y = this.y+50;
-            draw();
-        },
-        moveDown : function () {
-            this.y = this.y-50;
-            draw();
-        },
-        moveForward : function () {
-            this.z = this.z-50;
-            draw();
-        },
-        moveBackward : function () {
-            this.z = this.z+50;
-            draw();
-        },
-    };
-
     var Camera = function (x, y, z) {
         this.x=x;
         this.y=y;
         this.z=z;
     };
-
-    Camera.prototype = {
-        moveRight : function () {
-            this.x = this.x+50;
-            draw();
-        },
-        moveLeft : function () {
-            this.x = this.x-50
-            draw();
-        },
-        moveUp : function () {
-            this.y = this.y+50;
-            draw();
-        },
-        moveDown : function () {
-            this.y = this.y-50;
-            draw();
-        },
-        moveForward : function () {
-            this.z = this.z-50;
-            draw();
-        },
-        moveBackward : function () {
-            this.z = this.z+50;
-            draw();
-        },
-    }
 
     function setUpScene() {
         var p1=new Plane([400,0,0],[-1, 0, 0]);
