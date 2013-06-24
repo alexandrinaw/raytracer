@@ -91,7 +91,7 @@ var screen;
                // var r = new ray(cam_x,cam_y, cam_z, w+screenX, h+screenY, screenDepth);
                 var cl = closest_object(r); 
                 if (cl!==undefined) {
-                    var lighting = lightBuilder(cl, r); 
+                    var lighting = lightLevel(cl, r); 
                     color[0]+=lighting[0]; 
                     color[1]+=lighting[1]; 
                     color[2]+=lighting[2]; 
