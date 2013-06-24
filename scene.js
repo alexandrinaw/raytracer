@@ -10,7 +10,7 @@ var screen;
     this.height = height;
     this.depth = -500; 
     this.x_center = this.width/2;
-    this.y_center = this.width/2; 
+    this.y_center = this.height/2; 
   };
 
  Screen.prototype = {
