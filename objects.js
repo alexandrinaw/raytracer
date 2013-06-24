@@ -15,8 +15,8 @@
             var zu = ray_unit[2];
             
             var a = xu*xu+yu*yu+zu*zu; 
-            var b = 2 * (xu*(r.dx - this.x) +yu*(r.dy - this.y) + zu*(r.dz - this.z));
-            var c = (((r.dx-this.x)*(r.dx-this.x))+((r.dy-this.y)*(r.dy-this.y))+((r.dz-this.z)*(r.dz-this.z)))-this.radius*this.radius; 
+            var b = 2 * (xu*(r.x - this.x) +yu*(r.y - this.y) + zu*(r.z - this.z));
+            var c = (((r.x-this.x)*(r.x-this.x))+((r.y-this.y)*(r.y-this.y))+((r.z-this.z)*(r.z-this.z)))-this.radius*this.radius; 
             var disc = b*b-4*a*c;
             if (disc<0) {
                 return [];
@@ -31,9 +31,9 @@
                 throw "logic error!";
             }
             function coords (d) {
-                var x = r.dx + d*xu;
-                var y = r.dy + d*yu; 
-                var z = r.dz + d*zu; 
+                var x = r.x + d*xu;
+                var y = r.y + d*yu; 
+                var z = r.z + d*zu; 
                 return [x, y, z];
             };
         },
@@ -58,19 +58,19 @@
     }
 
     Plane.prototype = {
-        intersections: function(ray) {
-            var unit = ray.unitVector();
+        intersections: function(ry) {
+            var unit = ry.unitVector();
             var n = this.normal();
             var px = this.norm.x;
             var py = this.norm.y;
             var pz = this.norm.z;
-            var dot = this.norm.dotProduct(ray); 
+            var dot = this.norm.dotProduct(ry); 
            // var dot = (unit[0]*n[0] + unit[1]*n[1] + unit[2]*n[2]);
-            var d = ((unit[0]-px)*n[0]+(unit[1]-py)*n[1]+(unit[2]-pz)*n[2])/dot;
+            var d = ((px-ry.x)*n[0]+(py-ry.y)*n[1]+(pz-ry.z)*n[2])/dot;
             if (dot===0||dot<0){
                 return [];
             } else {
-                return [[unit[0]*d, unit[1]*d, unit[2]*d]]; 
+                return [[ry.x+unit[0]*d, ry.y+unit[1]*d, ry.z+unit[2]*d]]; 
             }
         }, 
         normal: function () {
