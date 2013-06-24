@@ -7,9 +7,9 @@
         for (var w=0; w<width; w++) {
             for (var h=0; h<height; h++) {
                 var color=[0, 0, 0, 255];
-                var targetX = w-(screen.width/2 - screen.x_center);
-                var targetY = h-(screen.height/2 - screen.y_center); 
-                var targetZ =cam.z+screen.depth; 
+                var targetX = w-(screen.width/2 - screen.x);
+                var targetY = h-(screen.height/2 - screen.y); 
+                var targetZ =cam.z+screen.z; 
                 
                 var r = new ray(targetX, targetY, targetZ, cam_x, cam_y, cam_z); 
                 var cl = closest_object(r); 

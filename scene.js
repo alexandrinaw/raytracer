@@ -8,9 +8,9 @@ var screen;
   var Screen = function () {
     this.width = width;
     this.height = height;
-    this.depth = -500; 
-    this.x_center = this.width/2;
-    this.y_center = this.height/2; 
+    this.z = -500; //actually screen depth from cam position
+    this.x = this.width/2; //center point
+    this.y = this.height/2; //center point
   };
 
 
@@ -26,7 +26,7 @@ var screen;
         moveDown : ['y', -50],
         moveForward : ['z', -50],
         moveBackward : ['z', 50]
-    }
+    };
 
     function addMovements(obj){
         for (movement in movements){
@@ -43,10 +43,10 @@ var screen;
         }
     }
 
-    Camera.prototype = {}
+    Camera.prototype = {};
     addMovements(Camera.prototype);
 
-    Screen.prototype = {}
+    Screen.prototype = {};
     addMovements(Screen.prototype); 
 
 
