@@ -6,29 +6,30 @@ var screen;
 
 (function (exports) {
   var Screen = function () {
+    this.width = width;
+    this.height = height;
     this.x=0;
     this.y=0;
     this.z=0;
-    this.width = width;
-    this.height = height;
+    this.x_center=this.width/2+this.x;
+    this.y_center=this.width/2+this.y; 
   };
-
 
  Screen.prototype = {
             moveRight : function () {
-                this.x = this.x-50;
+                this.x_center = this.x_center-50;
                 draw();
             },
             moveLeft : function () {
-                this.x = this.x+50;
+                this.x_center = this.x_center+50;
                 draw();
             },
             moveUp : function () {
-                this.y = this.y+50;
+                this.y_center = this.y_center+50;
                 draw();
             },
             moveDown : function () {
-                this.y = this.y-50;
+                this.y_center = this.y_center-50;
                 draw();
             },
             moveForward : function () {
