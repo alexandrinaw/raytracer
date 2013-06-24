@@ -13,6 +13,12 @@
             if(e.keyCode == 37) {
                 screen.moveRight(); 
             }
+            if(e.keyCode == 74) {
+                screen.moveForward(); 
+            }
+            if(e.keyCode == 75) {
+                screen.moveBackward(); 
+            }
         })
     };
     exports.allowMovement=allowMovement;
