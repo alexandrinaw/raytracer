@@ -8,11 +8,9 @@ var screen;
   var Screen = function () {
     this.width = width;
     this.height = height;
-    this.x=0;
-    this.y=0;
-    this.z=0;
-    this.x_center=this.width/2+this.x;
-    this.y_center=this.width/2+this.y; 
+    this.depth = -500; 
+    this.x_center = this.width/2;
+    this.y_center = this.width/2; 
   };
 
  Screen.prototype = {
@@ -39,7 +37,7 @@ var screen;
             moveBackward : function () {
                 this.z = this.z+50;
                 draw();
-            },
+            }
         };
 
  var Camera = function (x, y, z) {

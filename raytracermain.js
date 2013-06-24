@@ -3,23 +3,18 @@
         var cam_x=cam.x; 
         var cam_y=cam.y; 
         var cam_z=cam.z;
-       
-        var screenDepth = screen.z;
-        var screenX = screen.x;
-        var screenY = screen.y;
-
+      
         for (var w=0; w<width; w++) {
             for (var h=0; h<height; h++) {
                 var color=[0, 0, 0, 255];
-                var targetX;
-                var targetY; 
-                var targetZ; 
-
-                var r = new ray(w-(screen.width/2-screen.x_center), h-(screen.height/2-screen.y_center), screenDepth, cam_x, cam_y, cam_z); 
-               // var r = new ray(cam_x,cam_y, cam_z, w+screenX, h+screenY, screenDepth);
+                var targetX = w-(screen.width/2 - screen.x_center);
+                var targetY = h-(screen.height/2 - screen.y_center); 
+                var targetZ =cam.z+screen.depth; 
+                
+                var r = new ray(targetX, targetY, targetZ, cam_x, cam_y, cam_z); 
                 var cl = closest_object(r); 
                 if (cl!==undefined) {
-                    var lighting = lightBuilder(cl, r); 
+                    var lighting = lightLevel(cl, r); 
                     color[0]+=lighting[0]; 
                     color[1]+=lighting[1]; 
                     color[2]+=lighting[2]; 

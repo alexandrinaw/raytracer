@@ -22,6 +22,12 @@
             var r = this.unitVector(); 
             var r2 = ray2.unitVector(); 
             return r[0]*r2[0]+r[1]*r2[1]+r[2]*r2[2];
+        },
+        crossProduct: function (ray2) {
+            var u = this.vector();
+            var v = ray2.vector(); 
+            var cp = [u[1]*v[2]-u[2]*v[1], u[2]*v[0]-u[0]*v[2], u[0]*v[1]-u[1]*v[0]]; 
+            return cp; 
         }
     };
     exports.ray=ray; 

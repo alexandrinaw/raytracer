@@ -78,6 +78,48 @@
         }
     };
 
+    function Triangle (a, b, c) {
+        this.a=a; //[ax, ay, az]
+        this.b=b; //[bx, by, bz]
+        this.c=c; //[cx, cy, cz]
+        this.Material = new Material(); 
+    }
+
+    Triangle.prototype = {
+        intersections: function (ry) {
+            //stolen from Fundamentals of Computer Graphics ch. 4.4.2
+            var a = this.a[0] - this.b[0];
+            var b = this.a[1] - this.b[1]; 
+            var c = this.a[2] - this.b[2];
+            var d = this.a[0] - this.c[0];
+            var e = this.a[1] - this.c[1]; 
+            var f = this.a[2] - this.c[2]; 
+            var g = ry.dx; 
+            var h = ry.dy;  
+            var i = ry.dz; 
+            var j = this.a[0]-ry.x;
+            var k = this.a[1]-ry.y; 
+            var l = this.a[2]-ry.z; 
+            var M = a*(e*i-h*f)+b*(g*f-d*i)+c*(d*h-e*g); 
+            var t = -(f*(a*k-j*b) + e*(j*c-a*l) + d*(b*l-k*c))/M; 
+            if (t<0) 
+                return [];
+            var y = (i*(a*k-j*b)+h*(j*c-a*l)+g*(b*l-k*c))/M; 
+            if (y<0||y>1)
+                return []; 
+            var B = (j*(e*i-h*f)+k*(g*f-d*i)+l*(d*h-e*g))/M;
+            if (B<0 || B>1-y)
+                return [];
+            return [this.a];
+        }, 
+        normal: function() {
+            var r1 = new ray (this.a[0], this.a[1], this.a[2], this.b[0], this.b[1], this.b[2]); 
+            var r2 = new ray (this.a[0], this.a[1], this.a[2], this.c[0], this.c[1], this.c[2]);
+            return r1.crossProduct(r2); 
+            //cross product of two vectors on plane (defined by points)
+        }
+    }
+
     function Cube (x, y, z, size) {
         this.x=x; 
         this.y=y; 
@@ -105,7 +147,7 @@
             return this.front.normal();
         }
     };
-    exports.Cube=Cube; 
+    exports.Triangle=Triangle; 
     exports.Plane=Plane; 
     exports.Sphere=Sphere; 
 })(this); 
