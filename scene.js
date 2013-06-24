@@ -97,7 +97,7 @@ var screen;
     cam = new Camera(width/2, height/2, 500);
     screen = new Screen();
   }
-exports.setUpScene = setUpScene; 
+exports.setUpScene = setUpScene;
 exports.Camera=Camera;
-exports.Screen=Screen; 
-})(this); 
+exports.Screen=Screen;
+})(this);

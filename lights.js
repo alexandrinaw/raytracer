@@ -1,10 +1,10 @@
-var ia = 100; 
+var ia = 100;
 ;(function(exports) {
     var Light = function(x, y, z, intensity) {
         this.x=x;
-        this.y=y; 
-        this.z=z; 
-        this.i=intensity; 
+        this.y=y;
+        this.z=z;
+        this.i=intensity;
     };
 
     Light.prototype = {

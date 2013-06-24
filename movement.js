@@ -2,18 +2,18 @@
     var allowMovement = function () {
         window.addEventListener("keydown", function(e) {
             if(e.keyCode == 38) {
-                screen.moveDown(); 
+                screen.moveDown();
             }
             if(e.keyCode == 40) {
-                screen.moveUp(); 
+                screen.moveUp();
             }
             if(e.keyCode == 39) {
-                screen.moveLeft(); 
+                screen.moveLeft();
             }
             if(e.keyCode == 37) {
-                screen.moveRight(); 
+                screen.moveRight();
             }
         })
     };
     exports.allowMovement=allowMovement;
-})(this); 
+})(this);

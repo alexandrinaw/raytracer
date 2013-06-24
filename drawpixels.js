@@ -8,7 +8,7 @@ function init(canvas_id){
     canvas = document.getElementById(canvas_id);
     c = canvas.getContext("2d");
     width = canvas.width;
-    height = canvas.height; 
+    height = canvas.height;
     imageData = c.createImageData(width, height);
 }
 
