@@ -64,7 +64,7 @@ var screen;
         moveBackward : function () {
             this.z = this.z+50;
             draw(); 
-        },
+        }
     }
     
     var Screen = function () {
@@ -99,7 +99,7 @@ var screen;
             moveBackward : function () {
                 this.z = this.z+50;
                 draw(); 
-            },
+            }
         };
 
     function draw(){
