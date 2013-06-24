@@ -1,5 +1,5 @@
 ;(function (exports) {
-    var lightBuilder = function (obj, ry) {
+    var lightLevel = function (obj, ry) {
       var o = obj; 
       var p = o.intersections(ry)[0];
       if (p===undefined){
@@ -64,5 +64,5 @@
         }
         return false; 
     };
-    exports.lightBuilder=lightBuilder;
+    exports.lightLevel=lightLevel;
 })(this); 
