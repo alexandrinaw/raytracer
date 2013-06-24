@@ -32,7 +32,7 @@
     moveMappings[37] = moves.moveRight;
 
     var makeMoveable = function (mover, movedCallback) {
-        window.addEventListener("keydown", function(e) {
+        window.addEventListener("keyup", function(e) {
             if (e.keyCode in moveMappings) {
                 moveMappings[e.keyCode](mover);
                 movedCallback();
