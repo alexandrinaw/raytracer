@@ -11,6 +11,7 @@ var screen;
         this.z=0;
         this.width = width;
         this.height = height;
+        makeMoveable(this, draw);
     };
 
     var Camera = function (x, y, z) {
