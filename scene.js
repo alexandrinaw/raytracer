@@ -13,64 +13,42 @@ var screen;
     this.y_center = this.height/2; 
   };
 
- Screen.prototype = {
-            moveRight : function () {
-                this.x_center = this.x_center-50;
-                draw();
-            },
-            moveLeft : function () {
-                this.x_center = this.x_center+50;
-                draw();
-            },
-            moveUp : function () {
-                this.y_center = this.y_center+50;
-                draw();
-            },
-            moveDown : function () {
-                this.y_center = this.y_center-50;
-                draw();
-            },
-            moveForward : function () {
-                this.z = this.z-50;
-                draw();
-            },
-            moveBackward : function () {
-                this.z = this.z+50;
-                draw();
-            }
-        };
 
  var Camera = function (x, y, z) {
     this.x=x;
     this.y=y;
     this.z=z;
   };
-  Camera.prototype = {
-    moveRight : function () {
-      this.x = this.x+50;
-      draw();
-    },
-    moveLeft : function () {
-       this.x = this.x-50
-       draw();
-    },
-    moveUp : function () {
-        this.y = this.y+50;
-        draw();
-    },
-    moveDown : function () {
-        this.y = this.y-50;
-        draw();
-    },
-    moveForward : function () {
-        this.z = this.z-50;
-            draw();
-    },
-    moveBackward : function () {
-        this.z = this.z+50;
-        draw();
-        },
+    movements = {
+        moveLeft : ['x', 50],
+        moveRight : ['x', -50],
+        moveUp : ['y', 50],
+        moveDown : ['y', -50],
+        moveForward : ['z', -50],
+        moveBackward : ['z', 50]
     }
+
+    function addMovements(obj){
+        for (movement in movements){
+            (function(){
+                var name = movement;
+                var dim = movements[movement][0];
+                var delta = movements[movement][1];
+                var f = function(){
+                    this[dim] = this[dim] + delta;
+                    draw();
+                }
+                obj[movement] = f;
+            })()
+        }
+    }
+
+    Camera.prototype = {}
+    addMovements(Camera.prototype);
+
+    Screen.prototype = {}
+    addMovements(Screen.prototype); 
+
 
   function setUpScene() {
     var p1 = new Plane([400,0,0],[-1, 0, 0]);
