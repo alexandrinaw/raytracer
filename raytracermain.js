@@ -40,32 +40,30 @@ var screen;
       this.y=y; 
       this.z=z; 
     };
-    Camera.prototype = {
-        moveRight : function () {
-            this.x = this.x+50;
-            draw(); 
-        },
-        moveLeft : function () {
-            this.x = this.x-50;
-            draw(); 
-        },
-        moveUp : function () {
-            this.y = this.y+50;
-            draw(); 
-        },
-        moveDown : function () {
-            this.y = this.y-50;
-            draw(); 
-        },
-        moveForward : function () {
-            this.z = this.z-50;
-            draw(); 
-        },
-        moveBackward : function () {
-            this.z = this.z+50;
-            draw(); 
+    movements = {
+        moveLeft : ['x', 50],
+        moveRight : ['x', -50],
+        moveUp : ['y', 50],
+        moveDown : ['y', -50],
+        moveForward : ['z', -50],
+        moveBackward : ['z', 50]
+    }
+    Camera.prototype = {}
+    function addMovements(obj){
+        for (movement in movements){
+            (function(){
+                var name = movement;
+                var dim = movements[movement][0];
+                var delta = movements[movement][1];
+                var f = function(){
+                    this[dim] = this[dim] + delta;
+                    draw();
+                }
+                obj[movement] = f;
+            })()
         }
     }
+    addMovements(Camera.prototype);
     
     var Screen = function () {
         this.x=0; 
@@ -75,32 +73,8 @@ var screen;
         this.height = height; 
     };
 
-    Screen.prototype = {
-            moveRight : function () {
-                this.x = this.x-50;
-                draw(); 
-            },
-            moveLeft : function () {
-                this.x = this.x+50;
-                draw(); 
-            },
-            moveUp : function () {
-                this.y = this.y+50;
-                draw(); 
-            },
-            moveDown : function () {
-                this.y = this.y-50;
-                draw(); 
-            },
-            moveForward : function () {
-                this.z = this.z-50;
-                draw(); 
-            },
-            moveBackward : function () {
-                this.z = this.z+50;
-                draw(); 
-            }
-        };
+    Screen.prototype = {};
+    addMovements(Screen.prototype);
 
     function draw(){
         var cam_x=cam.x; 
