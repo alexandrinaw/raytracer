@@ -1,27 +1,27 @@
 ;(function(exports) {
     var moves = {
         moveRight : function (mover) {
-            mover.x = mover.x-50;
+            mover.x -= 50;
         },
 
         moveLeft : function (mover) {
-            mover.x = mover.x+50;
+            mover.x += 50;
         },
 
         moveUp : function (mover) {
-            mover.y = mover.y+50;
+            mover.y += 50;
         },
 
         moveDown : function (mover) {
-            mover.y = mover.y-50;
+            mover.y -= 50;
         },
 
         moveForward : function (mover) {
-            mover.z = mover.z-50;
+            mover.z -= 50;
         },
 
         moveBackward : function (mover) {
-            mover.z = mover.z+50;
+            mover.z += 50;
         }
     };
 
