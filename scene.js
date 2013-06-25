@@ -30,7 +30,7 @@ var screenDepth;
     };
 
     Scene.prototype = {
-        draw: function() {
+        render: function() {
             var renderedImage = [];
             var cam_x=this.camera.x;
             var cam_y=this.camera.y;
