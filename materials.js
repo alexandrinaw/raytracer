@@ -36,11 +36,6 @@
     Checkerboard.prototype.constructor=Checkerboard;
 
     Checkerboard.prototype = {
-        setColor2: function (r, g, b) {
-            this.r2 = r;
-            this.g2 = g;
-            this.b2 = b;
-        },
         getColor: function(targetPoint, originalPoint){
            // var dist = Math.sqrt(Math.pow((targetPoint[0]-originalPoint[0]), 2) + Math.pow((targetPoint[1]-originalPoint[1]), 2)+ Math.pow((targetPoint[2]-originalPoint[2]), 2));
            // if (Math.floor(dist/this.size)%2===1) {
