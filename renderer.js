@@ -1,6 +1,6 @@
 ;(function(exports) {
-    var Renderer = function(canvas_id) {
-        var canvas = document.getElementById(canvas_id);
+    var Renderer = function(canvasId) {
+        var canvas = document.getElementById(canvasId);
         this.c = canvas.getContext("2d");
         this.width = canvas.width;
         this.height = canvas.height;
