@@ -16,5 +16,6 @@
             return scene.objects[closest_i];
         }
     }
-    exports.cl=closest_object;
+
+    exports.closest_object=closest_object;
 })(this);
