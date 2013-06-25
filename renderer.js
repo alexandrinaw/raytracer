@@ -4,7 +4,14 @@
         this.c = canvas.getContext("2d");
         this.width = canvas.width;
         this.height = canvas.height;
-        this.imageData = this.c.createImageData(this.width, this.height);
+
+        this.newImageData = function() {
+            return this.c.createImageData(this.width, this.height);
+        };
+
+        this.setImageData = function(imageData) {
+            this.c.putImageData(imageData, 0, 0);
+        };
     };
 
     Renderer.prototype = {
