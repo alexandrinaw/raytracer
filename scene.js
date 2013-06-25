@@ -29,6 +29,35 @@ var screenDepth;
         this.lights.push(l);
     };
 
+    Scene.prototype = {
+        draw: function() {
+            var cam_x=this.camera.x;
+            var cam_y=this.camera.y;
+            var cam_z=this.camera.z;
+
+            var screenDepth = this.screen.z;
+            var screenX = this.screen.x;
+            var screenY = this.screen.y;
+            var imageData = renderer.newImageData();
+            for (var w=0; w<renderer.width; w++) {
+                for (var h=0; h<renderer.height; h++) {
+                    var color=[0, 0, 0, 255];
+                    var r = new ray(w+screenX, h+screenY, screenDepth, cam_x, cam_y, cam_z);
+                    // var r = new ray(cam_x,cam_y, cam_z, w+screenX, h+screenY, screenDepth);
+                    var cl = closest_object(r);
+                    if (cl!==undefined) {
+                        var lighting = lightBuilder(cl, r);
+                        color[0]+=lighting[0];
+                        color[1]+=lighting[1];
+                        color[2]+=lighting[2];
+                    }
+                    Renderer.setPixel(imageData, w, h, color[0], color[1], color[2], color[3]);
+                }
+            }
+            renderer.setImageData(imageData);
+        }
+    };
+
     var Screen = function () {
         this.x=0;
         this.y=0;
