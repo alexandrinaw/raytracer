@@ -17,15 +17,16 @@
     Renderer.prototype = {
         randomDots: function() {
             // draw random dots
+            var imageData = this.newImageData();
             for (i = 0; i < this.width*this.height; i++) {
                 x = Math.random() * this.width | 0; // |0 to truncate to Int32
                 y = Math.random() * this.height | 0;
                 r = Math.random() * 256 | 0;
                 g = Math.random() * 256 | 0;
                 b = Math.random() * 256 | 0;
-                this.setPixel(this.imageData, x, y, r, g, b, 255); // 255 opaque
+                this.setPixel(imageData, x, y, r, g, b, 255); // 255 opaque
             }
-            this.c.putImageData(this.imageData, 0, 0);
+            this.setImageData(imageData);
         },
 
         setPixel: function(imageData, x, y, r, g, b, a) {
