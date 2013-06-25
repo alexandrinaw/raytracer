@@ -24,7 +24,7 @@ var screen;
                     color[1]+=lighting[1];
                     color[2]+=lighting[2];
                 }
-                setPixel(imageData, w, h, color[0], color[1], color[2], color[3]);
+                renderer.setPixel(renderer.imageData, w, h, color[0], color[1], color[2], color[3]);
             }
         }
         renderer.c.putImageData(renderer.imageData, 0, 0);

@@ -21,13 +21,14 @@
             this.c.putImageData(this.imageData, 0, 0);
         },
 
-function setPixel (imageData, x, y, r, g, b, a) {
-     index = (x + y * imageData.width) * 4;
-     imageData.data[index+0] = r;
-     imageData.data[index+1] = g;
-     imageData.data[index+2] = b;
-     imageData.data[index+3] = a;
-}
+        setPixel: function(imageData, x, y, r, g, b, a) {
+            index = (x + y * imageData.width) * 4;
+            imageData.data[index+0] = r;
+            imageData.data[index+1] = g;
+            imageData.data[index+2] = b;
+            imageData.data[index+3] = a;
+        }
+    };
 
     exports.Renderer = Renderer;
 })(this);
