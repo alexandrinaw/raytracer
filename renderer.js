@@ -32,7 +32,7 @@
                 r = Math.random() * 256 | 0;
                 g = Math.random() * 256 | 0;
                 b = Math.random() * 256 | 0;
-                this.setPixel(imageData, x, y, r, g, b, 255); // 255 opaque
+                Renderer.setPixel(imageData, x, y, r, g, b, 255); // 255 opaque
             }
             this.setImageData(imageData);
         }

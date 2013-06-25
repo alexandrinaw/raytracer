@@ -20,7 +20,7 @@
                     color[1]+=lighting[1];
                     color[2]+=lighting[2];
                 }
-                renderer.setPixel(imageData, w, h, color[0], color[1], color[2], color[3]);
+                Renderer.setPixel(imageData, w, h, color[0], color[1], color[2], color[3]);
             }
         }
         renderer.setImageData(imageData);
