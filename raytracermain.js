@@ -7,6 +7,7 @@
         var screenDepth = scene.screen.z;
         var screenX = scene.screen.x;
         var screenY = scene.screen.y;
+        var imageData = renderer.newImageData();
         for (var w=0; w<renderer.width; w++) {
             for (var h=0; h<renderer.height; h++) {
                 var color=[0, 0, 0, 255];
@@ -19,10 +20,10 @@
                     color[1]+=lighting[1];
                     color[2]+=lighting[2];
                 }
-                renderer.setPixel(renderer.imageData, w, h, color[0], color[1], color[2], color[3]);
+                renderer.setPixel(imageData, w, h, color[0], color[1], color[2], color[3]);
             }
         }
-        renderer.c.putImageData(renderer.imageData, 0, 0);
+        renderer.setImageData(imageData);
     }
 
     function closest_object(ry) {
