@@ -64,7 +64,9 @@ var screenDepth;
         this.z=0;
         this.width = renderer.width;
         this.height = renderer.height;
-        makeMoveable(this, draw);
+        makeMoveable(this, function() {
+            scene.draw();
+        });
     };
 
     var Camera = function (x, y, z) {
