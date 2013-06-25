@@ -26,8 +26,6 @@ var screenDepth;
         p.Material=new Checkerboard(100);
         this.objects.push(p);
         var l = new Light(250, 100, 100, 100);
-        cam = new Camera(renderer.width/2, renderer.height/2, 500);
-        screen = new Screen();
         this.lights.push(l);
     };
 
