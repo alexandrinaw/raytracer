@@ -12,8 +12,8 @@ var screen;
         var screenDepth = screen.z;
         var screenX = screen.x;
         var screenY = screen.y;
-        for (var w=0; w<width; w++) {
-            for (var h=0; h<height; h++) {
+        for (var w=0; w<renderer.width; w++) {
+            for (var h=0; h<renderer.height; h++) {
                 var color=[0, 0, 0, 255];
                 var r = new ray(w+screenX, h+screenY, screenDepth, cam_x, cam_y, cam_z);
                // var r = new ray(cam_x,cam_y, cam_z, w+screenX, h+screenY, screenDepth);

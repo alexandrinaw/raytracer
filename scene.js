@@ -9,8 +9,8 @@ var screen;
         this.x=0;
         this.y=0;
         this.z=0;
-        this.width = width;
-        this.height = height;
+        this.width = renderer.width;
+        this.height = renderer.height;
         makeMoveable(this, draw);
     };
 
@@ -41,7 +41,7 @@ var screen;
         objects.push(p);
         var l = new Light(250, 100, 100, 100);
         lights.push(l);
-        cam = new Camera(width/2, height/2, 500);
+        cam = new Camera(renderer.width/2, renderer.height/2, 500);
         screen = new Screen();
     }
 
