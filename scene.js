@@ -3,20 +3,6 @@ var lights = [];
 var screenDepth;
 
 (function (exports) {
-    var Screen = function () {
-        this.x=0;
-        this.y=0;
-        this.z=0;
-        this.width = renderer.width;
-        this.height = renderer.height;
-        makeMoveable(this, draw);
-    };
-
-    var Camera = function (x, y, z) {
-        this.x=x;
-        this.y=y;
-        this.z=z;
-    };
     var Scene = function() {
         this.camera = new Camera(renderer.width/2, renderer.height/2, 500);
         this.screen = new Screen();
@@ -43,6 +29,19 @@ var screenDepth;
         lights.push(l);
         cam = new Camera(renderer.width/2, renderer.height/2, 500);
         screen = new Screen();
+    var Screen = function () {
+        this.x=0;
+        this.y=0;
+        this.z=0;
+        this.width = renderer.width;
+        this.height = renderer.height;
+        makeMoveable(this, draw);
+    };
+
+    var Camera = function (x, y, z) {
+        this.x=x;
+        this.y=y;
+        this.z=z;
     };
 
     exports.Scene=Scene;
