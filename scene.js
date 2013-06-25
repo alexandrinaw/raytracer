@@ -1,9 +1,9 @@
 var screenDepth;
 
 (function (exports) {
-    var Scene = function() {
-        this.camera = new Camera(renderer.width/2, renderer.height/2, 500);
-        this.screen = new Screen();
+    var Scene = function(width, height) {
+        this.camera = new Camera(width/2, height/2, 500);
+        this.screen = new Screen(width, height);
         this.objects = [];
         this.lights = [];
 
@@ -58,12 +58,12 @@ var screenDepth;
         }
     };
 
-    var Screen = function () {
+    var Screen = function (width, height) {
         this.x=0;
         this.y=0;
         this.z=0;
-        this.width = renderer.width;
-        this.height = renderer.height;
+        this.width = width;
+        this.height = height;
         makeMoveable(this, function() {
             scene.draw();
         });

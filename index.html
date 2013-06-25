@@ -19,7 +19,7 @@
               "raytracermain.js",
               function() {
                   renderer = new Renderer("myCanvas");
-                  scene = new Scene();
+                  scene = new Scene(renderer.width, renderer.height);
                   renderer.randomDots();
                   scene.draw();
               });
