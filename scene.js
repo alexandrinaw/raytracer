@@ -82,7 +82,7 @@
         this.width = width;
         this.height = height;
         makeMoveable(this, function() {
-            scene.draw();
+            renderer.draw(scene.render());
         });
     };
 
