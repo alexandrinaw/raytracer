@@ -1,4 +1,3 @@
-var ia = 100;
 ;(function(exports) {
     var Light = function(x, y, z, intensity) {
         this.x=x;
