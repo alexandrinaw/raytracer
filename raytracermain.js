@@ -1,13 +1,12 @@
 var objects=[];
 var lights = [];
-var cam;
 var screenDepth;
 var screen;
 (function (exports) {
     function draw(){
-        var cam_x=cam.x;
-        var cam_y=cam.y;
-        var cam_z=cam.z;
+        var cam_x=scene.camera.x;
+        var cam_y=scene.camera.y;
+        var cam_z=scene.camera.z;
 
         var screenDepth = screen.z;
         var screenX = screen.x;

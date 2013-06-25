@@ -1,6 +1,5 @@
 var objects=[];
 var lights = [];
-var cam;
 var screenDepth;
 var screen;
 
@@ -20,6 +19,7 @@ var screen;
         this.z=z;
     };
     var Scene = function() {
+        this.camera = new Camera(renderer.width/2, renderer.height/2, 500);
 
         var p1=new Plane([400,0,0],[-1, 0, 0]);
         objects.push(p1);
@@ -45,7 +45,6 @@ var screen;
         screen = new Screen();
     };
 
-    exports.Camera=Camera;
     exports.Screen=Screen;
     exports.Scene=Scene;
 })(this);
