@@ -1,4 +1,3 @@
-var lights = [];
 var screenDepth;
 (function (exports) {
     function draw(){

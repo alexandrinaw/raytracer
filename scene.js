@@ -1,4 +1,3 @@
-var lights = [];
 var screenDepth;
 
 (function (exports) {
@@ -6,6 +5,7 @@ var screenDepth;
         this.camera = new Camera(renderer.width/2, renderer.height/2, 500);
         this.screen = new Screen();
         this.objects = [];
+        this.lights = [];
 
         var p1=new Plane([400,0,0],[-1, 0, 0]);
         this.objects.push(p1);
@@ -26,9 +26,11 @@ var screenDepth;
         p.Material=new Checkerboard(100);
         this.objects.push(p);
         var l = new Light(250, 100, 100, 100);
-        lights.push(l);
         cam = new Camera(renderer.width/2, renderer.height/2, 500);
         screen = new Screen();
+        this.lights.push(l);
+    };
+
     var Screen = function () {
         this.x=0;
         this.y=0;

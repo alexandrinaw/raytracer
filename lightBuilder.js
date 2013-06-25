@@ -17,8 +17,8 @@
       var ambient_b = o.Material.ka*b;
       var illumination = [ambient_r, ambient_g, ambient_b];
       if (p!==undefined){
-        for (var j=0, len=lights.length; j<len; j++) {
-          var l = lights[j];//current light
+        for (var j=0, len=scene.lights.length; j<len; j++) {
+          var l = scene.lights[j];//current light
           var nu = o.normal(p[0], p[1], p[2]);//normal unit vector
           var lu = l.unitVector(p[0], p[1], p[2]);//light -> point unit vector
           var lambert = nu[0]*lu[0]+nu[1]*lu[1]+nu[2]*lu[2];
