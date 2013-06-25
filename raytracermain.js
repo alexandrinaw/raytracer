@@ -1,16 +1,15 @@
 var objects=[];
 var lights = [];
 var screenDepth;
-var screen;
 (function (exports) {
     function draw(){
         var cam_x=scene.camera.x;
         var cam_y=scene.camera.y;
         var cam_z=scene.camera.z;
 
-        var screenDepth = screen.z;
-        var screenX = screen.x;
-        var screenY = screen.y;
+        var screenDepth = scene.screen.z;
+        var screenX = scene.screen.x;
+        var screenY = scene.screen.y;
         for (var w=0; w<renderer.width; w++) {
             for (var h=0; h<renderer.height; h++) {
                 var color=[0, 0, 0, 255];
