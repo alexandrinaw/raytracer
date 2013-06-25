@@ -19,8 +19,8 @@ var screen;
         this.y=y;
         this.z=z;
     };
+    var Scene = function() {
 
-    function setUpScene() {
         var p1=new Plane([400,0,0],[-1, 0, 0]);
         objects.push(p1);
         var s = new Sphere(30, 75, -30, 40);
@@ -43,9 +43,9 @@ var screen;
         lights.push(l);
         cam = new Camera(renderer.width/2, renderer.height/2, 500);
         screen = new Screen();
-    }
+    };
 
-    exports.setUpScene = setUpScene;
     exports.Camera=Camera;
     exports.Screen=Screen;
+    exports.Scene=Scene;
 })(this);
