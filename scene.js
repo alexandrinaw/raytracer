@@ -1,4 +1,3 @@
-var objects=[];
 var lights = [];
 var screenDepth;
 
@@ -6,9 +5,10 @@ var screenDepth;
     var Scene = function() {
         this.camera = new Camera(renderer.width/2, renderer.height/2, 500);
         this.screen = new Screen();
+        this.objects = [];
 
         var p1=new Plane([400,0,0],[-1, 0, 0]);
-        objects.push(p1);
+        this.objects.push(p1);
         var s = new Sphere(30, 75, -30, 40);
         s.Material.setColor(30, 198, 0);
         s.Material.lighting(0.6, 0.2, 0.2);
@@ -17,14 +17,14 @@ var screenDepth;
         s2.Material.lighting(0.3, 0.6, 0.1);
         s4=new Sphere(300, 250, -1000, 300);
         s4.Material.lighting(0.6, 0.3, 0.1);
-        objects.push(s);
-        objects.push(s2);
-        objects.push(s4);
+        this.objects.push(s);
+        this.objects.push(s2);
+        this.objects.push(s4);
         var s3 = new Sphere (200,200,-200,40);
-        objects.push(s3);
+        this.objects.push(s3);
         var p = new Plane([100,300,100],[0,-1,0]);
         p.Material=new Checkerboard(100);
-        objects.push(p);
+        this.objects.push(p);
         var l = new Light(250, 100, 100, 100);
         lights.push(l);
         cam = new Camera(renderer.width/2, renderer.height/2, 500);

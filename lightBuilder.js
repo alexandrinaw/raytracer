@@ -54,9 +54,9 @@
       return illumination;
     };
     var isInShadow = function (ry, obj, lt) {
-        for (var i=0; i<objects.length; i++){
-            var p = objects[i].intersections(ry);
-            if (p.length>0 && obj !==objects[i]) {
+        for (var i=0; i<scene.objects.length; i++){
+            var p = scene.objects[i].intersections(ry);
+            if (p.length>0 && obj !==scene.objects[i]) {
                if (((lt.x > p[0][0] && p[0][0] > ry.x) || (lt.x < p[0][0] && p[0][0] < ry.x)) &&  ((lt.y > p[0][1] && p[0][1] > ry.y) || (lt.y < p[0][1] && p[0][1] < ry.y)) && ((lt.z > p[0][2] && p[0][2] > ry.z) || (lt.z < p[0][2] && p[0][2] < ry.z))){
                    return true;
                }
