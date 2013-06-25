@@ -1,4 +1,3 @@
-var screenDepth;
 (function (exports) {
     function draw(){
         var cam_x=scene.camera.x;
