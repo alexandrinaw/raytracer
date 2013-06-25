@@ -1,7 +1,7 @@
 //dx, dy, dz = point on ray / end position
 //x, y, z = starting position, or origin if not given
 ;(function (exports) {
-    var ray = function (dx, dy, dz, x, y, z){
+    var Ray = function (dx, dy, dz, x, y, z){
         this.x=x||0;
         this.y=y||0;
         this.z=z||0;
@@ -10,7 +10,7 @@
         this.dz=dz;
     };
 
-    ray.prototype = {
+    Ray.prototype = {
         vector: function () {
             return [(this.dx-this.x), (this.dy-this.y),(this.dz-this.z)];
         },
@@ -24,5 +24,6 @@
             return r[0]*r2[0]+r[1]*r2[1]+r[2]*r2[2];
         }
     };
-    exports.ray=ray;
+
+    exports.Ray=Ray;
 })(this);

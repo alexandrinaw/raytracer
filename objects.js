@@ -53,7 +53,7 @@
 
     function Plane(point, vector) {
         this.point = point;
-        this.norm = new ray(vector[0]+point[0], vector[1]+point[1], vector[2]+point[2], point[0], point[1], point[2]);
+        this.norm = new Ray(vector[0]+point[0], vector[1]+point[1], vector[2]+point[2], point[0], point[1], point[2]);
         this.Material = new Material();
     }
 

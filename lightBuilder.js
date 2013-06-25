@@ -22,7 +22,7 @@
           var nu = o.normal(p[0], p[1], p[2]);//normal unit vector
           var lu = l.unitVector(p[0], p[1], p[2]);//light -> point unit vector
           var lambert = nu[0]*lu[0]+nu[1]*lu[1]+nu[2]*lu[2];
-          var lr = new ray(l.x, l.y, l.z, p[0], p[1], p[2]);
+          var lr = new Ray(l.x, l.y, l.z, p[0], p[1], p[2]);
           if (isInShadow(lr, o, l)) {
             lambert = 0;
           }

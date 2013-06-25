@@ -41,7 +41,7 @@
                 renderedImage[h] = [];
                 for (var w=0; w<this.screen.width; w++) {
                     var color=[0, 0, 0, 255];
-                    var r = new ray(w+screenX, h+screenY, screenDepth, cam_x, cam_y, cam_z);
+                    var r = new Ray(w+screenX, h+screenY, screenDepth, cam_x, cam_y, cam_z);
                     // var r = new ray(cam_x,cam_y, cam_z, w+screenX, h+screenY, screenDepth);
                     var cl = this.closestObject(r);
                     if (cl!==undefined) {
