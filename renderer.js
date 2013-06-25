@@ -23,6 +23,17 @@
     };
 
     Renderer.prototype = {
+        draw: function(image) {
+            var imageData = this.newImageData();
+            for (var h = 0; h < this.height; h++) {
+                for (var w = 0; w < this.width; w++) {
+                    var p = image[h][w];
+                    Renderer.setPixel(imageData, w, h, p[0], p[1], p[2], p[3]);
+                }
+            }
+            this.setImageData(imageData);
+        },
+
         randomDots: function() {
             // draw random dots
             var imageData = this.newImageData();
