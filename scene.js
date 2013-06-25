@@ -45,7 +45,7 @@ var screenDepth;
                     var color=[0, 0, 0, 255];
                     var r = new ray(w+screenX, h+screenY, screenDepth, cam_x, cam_y, cam_z);
                     // var r = new ray(cam_x,cam_y, cam_z, w+screenX, h+screenY, screenDepth);
-                    var cl = this.closest_object(r);
+                    var cl = this.closestObject(r);
                     if (cl!==undefined) {
                         var lighting = lightBuilder(cl, r);
                         color[0]+=lighting[0];
@@ -58,7 +58,7 @@ var screenDepth;
             return renderedImage;
         },
 
-        closest_object: function(ry) {
+        closestObject: function(ry) {
             var closest_dist=10000000;
             var closest_i=-1;
             for (var i=0; i<scene.objects.length; i++) {
