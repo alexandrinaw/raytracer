@@ -42,7 +42,6 @@
             return scene.objects[closest_i];
         }
     }
-    exports.setUpScene = setUpScene;
     exports.draw=draw;
     exports.cl=closest_object;
 })(this);
