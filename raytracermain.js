@@ -27,7 +27,7 @@ var screen;
                 setPixel(imageData, w, h, color[0], color[1], color[2], color[3]);
             }
         }
-        c.putImageData(imageData, 0, 0);
+        renderer.c.putImageData(renderer.imageData, 0, 0);
     }
 
     function closest_object(ry) {
