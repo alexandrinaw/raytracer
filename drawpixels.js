@@ -1,16 +1,12 @@
-var canvas;
-var c;
-var width;
-var height;
-var imageData;
+;(function(exports) {
+    var Renderer = function(canvas_id) {
+        var canvas = document.getElementById(canvas_id);
+        this.c = canvas.getContext("2d");
+        this.width = canvas.width;
+        this.height = canvas.height;
+        this.imageData = this.c.createImageData(this.width, this.height);
+    };
 
-function init(canvas_id){
-    canvas = document.getElementById(canvas_id);
-    c = canvas.getContext("2d");
-    width = canvas.width;
-    height = canvas.height;
-    imageData = c.createImageData(width, height);
-}
 
 function setPixel (imageData, x, y, r, g, b, a) {
      index = (x + y * imageData.width) * 4;
@@ -32,3 +28,5 @@ function randomDots (){
     }
     c.putImageData(imageData, 0, 0);
 }
+    exports.Renderer = Renderer;
+})(this);
