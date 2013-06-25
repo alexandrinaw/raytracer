@@ -1,6 +1,6 @@
 var screenDepth;
 
-(function (exports) {
+;(function (exports) {
     var Scene = function(width, height) {
         this.camera = new Camera(width/2, height/2, 500);
         this.screen = new Screen(width, height);
