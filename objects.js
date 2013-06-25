@@ -4,7 +4,7 @@
         this.y = y;
         this.z = z;
         this.radius = radius;
-        this.Material = new Material();
+        this.material = new Material();
     }
 
     Sphere.prototype = {
@@ -54,7 +54,7 @@
     function Plane(point, vector) {
         this.point = point;
         this.norm = new Ray(vector[0]+point[0], vector[1]+point[1], vector[2]+point[2], point[0], point[1], point[2]);
-        this.Material = new Material();
+        this.material = new Material();
     }
 
     Plane.prototype = {
@@ -83,7 +83,7 @@
         this.y=y;
         this.z=z;
         this.size = size;
-        this.Material = new Material();
+        this.material = new Material();
         this.front = new Plane([x, y, z+size/2,],[0,0,1]);
         this.back = new Plane([x, y, z-size/2],[0,0,-1]);
         this.left = new Plane([x-size/2, y, z],[-1, 0, 0]);

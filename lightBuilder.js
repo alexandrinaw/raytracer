@@ -5,16 +5,16 @@
       if (p===undefined){
         return[0, 0, 0];
       }
-      var kd = o.Material.kd;
-      var ks = o.Material.ks;
-      var c = o.Material.getColor(p, o.point);
+      var kd = o.material.kd;
+      var ks = o.material.ks;
+      var c = o.material.getColor(p, o.point);
       var r = c[0];
       var g = c[1];
       var b = c[2];
       var ru = ry.unitVector(); //ray unit vector
-      var ambient_r = o.Material.ka*r;
-      var ambient_g = o.Material.ka*g;
-      var ambient_b = o.Material.ka*b;
+      var ambient_r = o.material.ka*r;
+      var ambient_g = o.material.ka*g;
+      var ambient_b = o.material.ka*b;
       var illumination = [ambient_r, ambient_g, ambient_b];
       if (p!==undefined){
         for (var j=0, len=scene.lights.length; j<len; j++) {
