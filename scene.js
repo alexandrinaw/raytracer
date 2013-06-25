@@ -31,6 +31,7 @@ var screenDepth;
 
     Scene.prototype = {
         draw: function() {
+            var renderedImage = [];
             var cam_x=this.camera.x;
             var cam_y=this.camera.y;
             var cam_z=this.camera.z;
@@ -38,9 +39,9 @@ var screenDepth;
             var screenDepth = this.screen.z;
             var screenX = this.screen.x;
             var screenY = this.screen.y;
-            var imageData = renderer.newImageData();
-            for (var w=0; w<this.screen.width; w++) {
-                for (var h=0; h<this.screen.height; h++) {
+            for (var h=0; h<this.screen.height; h++) {
+                renderedImage[h] = [];
+                for (var w=0; w<this.screen.width; w++) {
                     var color=[0, 0, 0, 255];
                     var r = new ray(w+screenX, h+screenY, screenDepth, cam_x, cam_y, cam_z);
                     // var r = new ray(cam_x,cam_y, cam_z, w+screenX, h+screenY, screenDepth);
@@ -51,10 +52,10 @@ var screenDepth;
                         color[1]+=lighting[1];
                         color[2]+=lighting[2];
                     }
-                    Renderer.setPixel(imageData, w, h, color[0], color[1], color[2], color[3]);
+                    renderedImage[h][w] = [color[0], color[1], color[2], color[3]];
                 }
             }
-            renderer.setImageData(imageData);
+            return renderedImage;
         }
     };
 
