@@ -5,29 +5,28 @@
 	<head>
 		<title>Ray Tracer</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-		<link rel="stylesheet" type ="text/css" href="css.css">		
-		<script type="text/javascript" src="drawpixels.js"></script>
-		<script type="text/javascript" src="objects.js"></script>
-		<script type="text/javascript" src="lights.js"></script>
-		<script type="text/javascript" src="ray.js"></script>
-		<script type="text/javascript" src="materials.js"></script>
-		<script type="text/javascript" src="lightLevel.js"></script>
-		<script type="text/javascript" src="movement.js"></script>
-		<script type="text/javascript" src="scene.js"></script>
-		<script type="text/javascript" src="raytracermain.js"></script>
+		<link rel="stylesheet" type ="text/css" href="css.css">
+		<script type="text/javascript" src="head.loader.js"></script>
+    <script type="text/javascript">
+      head.js("renderer.js",
+              "light.js",
+              "objects.js",
+              "ray.js",
+              "materials.js",
+              "lightLevel.js",
+              "movement.js",
+              "scene.js",
+              function() {
+                  renderer = new Renderer("myCanvas");
+                  scene = new Scene(renderer.width, renderer.height);
+                  renderer.randomDots();
+                  renderer.draw(scene.render());
+              });
+    </script>
 	</head>
 	<body>
-        <canvas id="myCanvas" width="400" height="300"></canvas>	
-	    <div id= "buttons"> 
+        <canvas id="myCanvas" width="400" height="300"></canvas>
+	    <div id= "buttons">
         </div>
     </body>
-    <script type = "text/javascript">
-        window.onload = function() {
-            init("myCanvas"); 
-            setUpScene(); 
-            randomDots(); 
-            draw(); 
-            allowMovement(); 
-        }
-    </script>
 </html>
