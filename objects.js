@@ -1,8 +1,8 @@
 ;(function (exports) {
     function Sphere (x, y, z, radius) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
+        this.x = x; //center point coordinates
+        this.y = y; //center point coordinates
+        this.z = z; //center point coordinates
         this.radius = radius;
         this.material = new Material();
     }
