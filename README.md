@@ -1,3 +1,3 @@
 raytracer
 =========
-Demo can be found at alexwilson.us/raytracer. 
+Demo [here](alexwilson.us/raytracer). 
