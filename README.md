@@ -1,3 +1,4 @@
 raytracer
 =========
-Demo [here](alexwilson.us/raytracer). 
+
+See it in [action](http://alexwilson.us/raytracer).
